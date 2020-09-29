@@ -12,11 +12,15 @@ var startQuiz =document.getElementById("begin");
 // WHEN I click the start button
     // THEN a timer starts 
 
-startQuiz.addEventListener("click", function (){
-    console.log("clicked it!")
-
-})
+startQuiz.addEventListener("click", function setTime(){
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+    })
+}
         // function for a count down
+
+      
+
     // THEN I am presented with a question
         // need a function to hold this
             
