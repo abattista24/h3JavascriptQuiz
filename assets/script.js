@@ -1,28 +1,30 @@
 //-------------Variables Needed-------------
 var timer =document.querySelector(".time");
 var startQuiz = document.getElementById("begin");
-var timeleft = 120;
+var timeleft = 60;
 var startPg = document.getElementById("welcome");
+var current = "";
+var runquiz = document.getElementById("quiz");
 
 // put questions into an array
-var questions =[
-  { 
+var questions ={
+ first:{ 
     q: "Which is the correct notation for a function?",
     a: ["function?", "function//()", "function():", "function(){}"],
     correctA: "function(){}",
   },
-  {
+  Second:{
     q: "what browser tool can help to see possible errors in the code?",
     a: [ "search","console", "google", "you need to download a program for this"],
     correctA: "console",
   },
-  {
+ third: {
     q: "What do you use to make a true or false statement appear on the browser screen",
     a: ["statement", "t/f", "confirm", "tfState"],
     correctA: "confirm",
 
-  },
-]
+  }
+};
 
 
 
@@ -33,7 +35,7 @@ function begin( ){
     // THEN a timer starts {
   var quizTime = setInterval(function(){
     timeleft--;
-    timer.textContent = timeleft + "Seconds left";
+    timer.textContent = timeleft + "seconds left";
  
     if(timeleft === 0 ){
     clearInterval(quizTime);
@@ -42,32 +44,30 @@ function begin( ){
 
    // clears out main page, ready for a question
   startPg.textContent= "";
+  runquiz.textContent= questions.first.q;
+
 };
 
 // THEN I am presented with a question
+  // function askQuestion (){
+  //  console.log (runquiz.textContent= questions.first.q); 
+  //  console.log (runquiz.textContent =questions.first.a);
 
- 
-   // trigger start button to run fucntion above
-startQuiz.addEventListener("click", begin);
-
-   
-        // need a function to hold this 
-
-        
+  // //   // runquiz.textContent = current;
+  // };
 
 
-
-    // function firstQ (){
-    //     startQuiz.addEventListener("click"+ function(){
-    //         mainPg.modal.display = "none";
-
-    //     })
-    // }
-            
 
 // WHEN I answer a question correctly   
+ 
     // THEN I am presented with another question
         // need a function to hold this
+ 
+   
+   // trigger start button to run quiz
+startQuiz.addEventListener("click", begin,)
+            
+
 
 // WHEN I answer a question incorrectly
     // THEN time is subtracted from the clock
