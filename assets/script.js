@@ -1,8 +1,8 @@
 //-------------Variables Needed-------------
-var timer =document.getElementsByClassName("time");
+var timer =document.querySelector(".time");
 var startQuiz = document.getElementById("begin");
-var timeEl = 120;
-var mainPg = document.getElementById("welcome");
+var timeleft = 120;
+var startPg = document.getElementById("welcome");
 
 // put questions into an array
 var questions =[
@@ -28,22 +28,29 @@ var questions =[
 
 // WHEN I click the start button
 
-function begin (e) {
-    e.preventdefault;
-    // THEN a timer starts 
-    var quizTime = setInterval(function() {
-        timeEl-1;
-        console.log(timer.textContent = "quizTime");
+function begin( ){
+   
+    // THEN a timer starts {
+  var quizTime = setInterval(function(){
+    timeleft--;
+    timer.textContent = timeleft + "Seconds left";
+ 
+    if(timeleft === 0 ){
+    clearInterval(quizTime);
+    }
+  },1000)
 
-        if(timeEl === 0 ){
-            clearInterval(quizTime);
-        }
-            
-    }, 1000)}
+   // clears out main page, ready for a question
+  startPg.textContent= "";
+};
+
+// THEN I am presented with a question
+
+ 
    // trigger start button to run fucntion above
-startQuiz.addEventListener("click", begin)
+startQuiz.addEventListener("click", begin);
 
-    // THEN I am presented with a question
+   
         // need a function to hold this 
 
         
@@ -77,6 +84,6 @@ startQuiz.addEventListener("click", begin)
     // THEN I can save my initials and score
         // prompt user to add initials
         // create grid on page to hold name and scores
-        function allScores () {
-            console.log("this would be the scores")
-        }
+        // function allScores () {
+        //     console.log("this would be the scores")
+        // }
