@@ -1,28 +1,61 @@
 //-------------Variables Needed-------------
+var timer =document.getElementsByClassName("time");
+var startQuiz = document.getElementById("begin");
+var timeEl = 120;
+var mainPg = document.getElementById("welcome");
 
-var startQuiz =document.getElementById("begin");
+// put questions into an array
+var questions =[
+  { 
+    q: "Which is the correct notation for a function?",
+    a: ["function?", "function//()", "function():", "function(){}"],
+    correctA: "function(){}",
+  },
+  {
+    q: "what browser tool can help to see possible errors in the code?",
+    a: [ "search","console", "google", "you need to download a program for this"],
+    correctA: "console",
+  },
+  {
+    q: "What do you use to make a true or false statement appear on the browser screen",
+    a: ["statement", "t/f", "confirm", "tfState"],
+    correctA: "confirm",
+
+  },
+]
 
 
-
-
-// --------------Functions Needed-------------
-
-// GIVEN I am taking a code quiz
 
 // WHEN I click the start button
+
+function begin (e) {
+    e.preventdefault;
     // THEN a timer starts 
+    var quizTime = setInterval(function() {
+        timeEl-1;
+        console.log(timer.textContent = "quizTime");
 
-startQuiz.addEventListener("click", function setTime(){
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-    })
-}
-        // function for a count down
-
-      
+        if(timeEl === 0 ){
+            clearInterval(quizTime);
+        }
+            
+    }, 1000)}
+   // trigger start button to run fucntion above
+startQuiz.addEventListener("click", begin)
 
     // THEN I am presented with a question
-        // need a function to hold this
+        // need a function to hold this 
+
+        
+
+
+
+    // function firstQ (){
+    //     startQuiz.addEventListener("click"+ function(){
+    //         mainPg.modal.display = "none";
+
+    //     })
+    // }
             
 
 // WHEN I answer a question correctly   
@@ -44,8 +77,6 @@ startQuiz.addEventListener("click", function setTime(){
     // THEN I can save my initials and score
         // prompt user to add initials
         // create grid on page to hold name and scores
-
-
-
-
-
+        function allScores () {
+            console.log("this would be the scores")
+        }
